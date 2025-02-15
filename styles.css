@@ -1,0 +1,276 @@
+@font-face {
+    font-family: 'Metropolis';
+    src: url('fonts/Metropolis1920_Regular_400.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Arsenica';
+    src: url('fonts/ArsenicaTrial-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ArsenicaBold';
+    src: url('fonts/ArsenicaTrial-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Arimo';
+    src: url('fonts/Arimo-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ArsenicaNumbers';
+    src: url('fonts/LibreCaslonDisplay-Regular.ttf') format('truetype');
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: black;
+    color: #cd9c4f;
+    font-family: 'Arsenica', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+/* Rohy */
+.corner {
+    position: absolute;
+    width: 200px;
+    max-width: 50vw;
+}
+
+.top-left {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    transform: rotate(270deg);
+}
+
+.top-right {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    transform: rotate(180deg);
+}
+
+.bottom-left {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    transform: rotate(90deg);
+}
+
+.bottom-right {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(0deg);
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0; /* Začíná jako neviditelný */
+    transform: translateY(50px); /* Posunutý dolů */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Přechod pro zobrazení */
+}
+
+.content.visible {
+    opacity: 1; /* Viditelný */
+    transform: translateY(0); /* Návrat na původní místo */
+}
+
+/* Obsah */
+.content h1 {
+    font-size: calc(1.1rem + 1vw);
+    margin: 0.5rem 20px;
+    padding-top: 10vh;
+}
+
+.content h2 {
+    font-size: calc(2rem + 3vw);
+    font-weight: 400;
+    margin: 0.5rem 20px;
+    font-family: 'Metropolis', sans-serif;
+    letter-spacing: 0.1em;
+    padding-top: 3vh;
+    text-align: center;
+}
+
+.content h3 {
+    font-size: calc(1.7rem + 1vw);
+    font-weight: 1000;
+    margin: 0.5rem 20px;
+    font-family: 'ArsenicaBold', sans-serif;
+}
+
+.content h4 {
+    font-size: calc(3.6rem + 0.5vw);
+    font-weight: 700;
+    margin: 0 20px;
+}
+
+.content h5 {
+    font-size: calc(1.5rem + 0.5vw);
+    font-weight: 700;
+    margin: 0.5rem 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.content p {
+    font-size: calc(1rem + 0.5vw);
+    margin: 0.5rem 0;
+}
+
+#program {
+    font-size: calc(2rem + 3vw);
+    font-weight: 400;
+    margin: 0.5rem 0;
+    font-family: 'Metropolis', sans-serif;
+    letter-spacing: 0.1em;
+    padding-top: 12vh;
+}
+
+#andArimoFont {
+    font-family: 'Arimo', sans-serif;
+}
+
+.arsenicaNumbers {
+    font-family: 'ArsenicaNumbers', sans-serif;
+}
+
+.spacer {
+    margin-left: 3em; /* Adjust the value as needed */
+}
+
+.schedule {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em;
+}
+
+.time {
+    text-align: left;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.event {
+    text-align: left;
+}
+
+/* Tabulka */
+
+.schedule-table {
+    width: 80%; /* Adjust the width as needed */
+    margin: 40px auto; /* Center the table horizontally */
+    border-collapse: separate;
+    border-spacing: 2em 10px;
+    table-layout: auto;
+    font-family: 'Arsenica', sans-serif;
+    text-align: left;
+    font-weight: 600;
+    font-size: calc(1.5rem + 1vw);
+    overflow-x: auto;
+}
+
+.schedule-table td:first-child {
+    width: 10%;
+    white-space: nowrap;
+}
+
+.schedule-table td:last-child {
+    width: auto;
+    white-space: nowrap;
+}
+@media screen and (max-width: 950px) {
+    .corner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .schedule-table td:first-child {
+        width: auto;
+    }
+
+    .schedule-table td:last-child {
+        white-space: normal; /* Allows text to wrap at spaces */
+        word-wrap: break-word;
+    }
+
+}
+
+
+.schedule-table .arsenicaNumbers {
+    font-weight: bold;
+}
+
+#sponsors {
+    font-size: calc(2rem + 3vw);
+    font-weight: 400;
+    margin: 0.5rem 0;
+    font-family: 'Metropolis', sans-serif;
+    letter-spacing: 0.1em;
+    padding-top: 12vh;
+}
+
+/* Středová dekorace */
+.center-decor {
+    width: 35%;
+    max-width: 100px;
+    height: auto;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+p {
+    text-align: center;
+}
+
+.white-section {
+    background-color: white;
+    width: 100vw;
+    margin: 0;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+}
+
+.sponsors-section {
+    width: 100%; /* Aby sekce SPONZOŘI pokrývala celou šířku */
+    max-width: 1200px; /* Maximální šířka pro lepší čitelnost */
+    padding: 0 1rem; /* Vnitřní odsazení */
+    position: relative;
+    z-index: 1;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamické přizpůsobení sloupců */
+    gap: 1rem; /* Mezera mezi logy */
+    justify-items: center; /* Zarovnání log na střed */
+    align-items: center; /* Vertikální zarovnání na střed */
+    position: relative;
+    z-index: 2;
+}
+
+.sponsors-grid img {
+    max-width: 100%;
+    max-height: 150px; /* Omezit výšku log */
+    object-fit: contain; /* Zachování poměru stran */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekt */
+    position: relative;
+    z-index: 3;
+}
+
+.sponsors-grid img:hover {
+    transform: scale(1.1); /* Zvýraznění při najetí myší */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Stín při najetí myší */
+}
